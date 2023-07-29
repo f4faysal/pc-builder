@@ -30,7 +30,7 @@ const NavBar = () => {
               <li>
                 <a>Categories</a>
                 <ul className="p-2">
-                  <li><Link href='/prodact/CPUProcessor'>CPU / Processor</Link></li>
+                  <li><Link href='/prodact/CPU'>CPU / Processor</Link></li>
                   <li><Link href='/prodact/Motherboard'>Motherboard</Link></li>
                   <li><Link href='/prodact/RAM'>RAM</Link></li>
                   <li><Link href='/prodact/PowerSupplyUnit'>Power Supply Unit</Link></li>
@@ -48,7 +48,7 @@ const NavBar = () => {
             Categories
           </label>
           <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-            <li><Link href='/prodact/CPUProcessor'>CPU Processor</Link></li>
+            <li><Link href='/prodact/CPU'>CPU Processor</Link></li>
             <li><Link href='/prodact/Motherboard'>Motherboard</Link></li>
             <li><Link href='/prodact/RAM'>RAM</Link></li>
             <li><Link href='/prodact/PowerSupplyUnit'>Power Supply Unit</Link></li>

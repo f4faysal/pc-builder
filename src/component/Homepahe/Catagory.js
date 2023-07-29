@@ -2,11 +2,11 @@ import CatagoryCard from "./CatagoryCard";
 
 const CatagoryHome = () => {
      const computerComponents = [
-          "CPU / Processor",
+          "CPU",
           "Motherboard",
           "RAM",
-          "Power Supply Unit",
-          "Storage Device",
+          "PowerSupplyUnit",
+          "StorageDevice",
           "Monitor",
      ];
 
