@@ -4,7 +4,7 @@ import { useAppDispatch } from "@/redux/hook";
 import { useEffect } from "react";
 
 const PcBildPage = ({product}) => {
-     console.log(product.data)
+  
      const dispatch = useAppDispatch();
      // dispatch(getProductsSuccess(product.data))
      useEffect(() => {
@@ -17,7 +17,7 @@ const PcBildPage = ({product}) => {
                }
              }
         }, [product, dispatch]);
-console.log(product)
+
      return (
           <div className="md:flex md:justify-center h-screen">
                <div className="m-4 md:w-1/2 box-border border-4">

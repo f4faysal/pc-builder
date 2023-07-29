@@ -4,13 +4,14 @@ import { signOut, useSession } from "next-auth/react";
 import Link from "next/link";
 import { useEffect } from "react";
 const NavBar = () => {
+
   const dispatch = useAppDispatch();
   const { user } = useAppSelector((state) => state.user);
   const { data: session } = useSession()
   // console.log(session?.user?.email)
   useEffect(() =>{
     dispatch(setUser(session?.user?.email));
-  },[session?.user , dispatch])
+  },[session?.user , dispatch ])
 
   const handelLogOut = () => {
     signOut()
@@ -69,3 +70,6 @@ const NavBar = () => {
 };
 
 export default NavBar;
+
+
+
