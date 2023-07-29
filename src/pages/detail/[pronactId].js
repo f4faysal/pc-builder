@@ -22,7 +22,7 @@ ProductDetail.getLayout = function getLayout(page) {
 }
 
 export async function getStaticPaths() {
-     const res = await fetch(`http://localhost:5000/api/v1/product`)
+     const res = await fetch(`https://pc-bd.vercel.app/api/v1/product`)
      const prodacts = await res.json()
 
      const paths = prodacts.data.map((prodact) => ({
@@ -34,7 +34,7 @@ export async function getStaticPaths() {
 
 export const getStaticProps = async (context) => {
      const { params } = context
-     const res = await fetch(`http://localhost:5000/api/v1/product/${params.pronactId}`)
+     const res = await fetch(`https://pc-bd.vercel.app/api/v1/product/${params.pronactId}`)
      const data = await res.json()
      return { props: { product: data } }
 }

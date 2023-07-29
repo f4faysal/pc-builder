@@ -2,14 +2,18 @@ import Card from "@/component/Card";
 import CatagoryHome from "@/component/Homepahe/Catagory";
 import HeroSection from "@/component/Homepahe/HeroSection";
 import RootLayout from "@/component/layouts/RootLayout";
+import { useSession } from "next-auth/react";
 
 const HomePage = ({ product }) => {
+  const { data: session } = useSession()
 
-const prodates = product.data
+  console.log(session?.user?.email)
+
+  const prodates = product.data
   return (
     <div>
       <HeroSection />
-      <CatagoryHome/>
+      <CatagoryHome />
       <div className="container mx-auto my-14">
         <div className="text-center">
           <h1 className="text-4xl my-3">Featured Products</h1>
@@ -20,7 +24,7 @@ const prodates = product.data
 
         <div className="grid  grid-cols-1 md:grid-cols-5 gap-4 justify-items-center my-10">
           {
-            prodates.map(prodct => <Card prodct={prodct} key={prodct._id}/>)
+            prodates.map(prodct => <Card prodct={prodct} key={prodct._id} />)
           }
         </div>
       </div>
@@ -39,7 +43,7 @@ HomePage.getLayout = function getLayout(page) {
 
 
 export const getStaticProps = async () => {
-  const res = await fetch('http://localhost:5000/api/v1/product/?limit=6')
+  const res = await fetch('https://pc-bd.vercel.app/api/v1/product/?limit=6')
   const data = await res.json()
-  return { props: { product: data } , revalidate : 10 }
+  return { props: { product: data }, revalidate: 10 }
 }
