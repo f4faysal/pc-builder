@@ -1,9 +1,21 @@
-import { signOut } from "next-auth/react";
+import { setUser } from "@/redux/features/user/userSlice";
+import { useAppDispatch, useAppSelector } from "@/redux/hook";
+import { signOut, useSession } from "next-auth/react";
 import Link from "next/link";
+import { useEffect } from "react";
 const NavBar = () => {
+  const dispatch = useAppDispatch();
+  const { user } = useAppSelector((state) => state.user);
+  const { data: session } = useSession()
+  // console.log(session?.user?.email)
+  useEffect(() =>{
+    dispatch(setUser(session?.user?.email));
+  },[session?.user , dispatch])
 
-  // const { data: session } = useSession()
-  // console.log(session)
+  const handelLogOut = () => {
+    signOut()
+    dispatch(setUser(null));
+  }
   return (
     <div className="bg-base-100">
       <div className="navbar container mx-auto">
@@ -46,9 +58,9 @@ const NavBar = () => {
 
         <div className="navbar-end">
           <Link href='/pc-build' className="btn">PC Build</Link>
-          <ul className="menu menu-horizontal px-1">
-            {true ? <li><button onClick={()=> signOut()}>Log Out</button></li> :
-              <li><Link href='/login'>Login</Link></li>}
+          <ul className="">
+            {user?.email ? <li><p className="btn btn-warning" onClick={handelLogOut}>Log Out</p></li> :
+              <li><Link className="btn btn-primary" href='/login'>Login</Link></li>}
           </ul>
         </div>
       </div>

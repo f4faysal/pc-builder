@@ -2,13 +2,9 @@ import Card from "@/component/Card";
 import CatagoryHome from "@/component/Homepahe/Catagory";
 import HeroSection from "@/component/Homepahe/HeroSection";
 import RootLayout from "@/component/layouts/RootLayout";
-import { useSession } from "next-auth/react";
 
 const HomePage = ({ product }) => {
-  const { data: session } = useSession()
-
-  console.log(session?.user?.email)
-
+  
   const prodates = product.data
   return (
     <div>

@@ -1,12 +1,20 @@
 import '@/styles/globals.css'
 import { SessionProvider } from 'next-auth/react'
-
+import { Provider } from 'react-redux'
+import { store } from '../redux/store'
 export default function MyApp({ Component, pageProps }) {
   // Use the layout defined at the page level, if available
   const getLayout = Component.getLayout || ((page) => page)
 
-  return getLayout(
+  return (<Provider store={store}>
+
     <SessionProvider session={pageProps.session}>
-      <Component {...pageProps} />
-    </SessionProvider>)
+      {getLayout(
+        <Component {...pageProps} />
+      )}
+    </SessionProvider>
+  </Provider>
+  )
+
+
 }

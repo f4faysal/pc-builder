@@ -1,5 +1,23 @@
-import { signIn, } from "next-auth/react";
+import { setUser } from "@/redux/features/user/userSlice";
+import { useAppDispatch } from "@/redux/hook";
+import { signIn, useSession } from "next-auth/react";
 const LoginPage = () => {
+  const dispatch = useAppDispatch();
+  const { data: session } = useSession()
+  console.log(session?.user?.email)
+  const handelGoogleLogin = () => {
+    signIn("google", {
+      callbackUrl: "http://localhost:3000/",
+    })
+   
+  }
+  const handelGithubLogin = () => {
+    signIn("github", {
+      callbackUrl: "http://localhost:3000/",
+    })
+    
+  }
+
   return (
     <div className="hero min-h-screen bg-base-200">
       <div className="hero-content flex-col lg:flex-row-reverse">
@@ -40,21 +58,13 @@ const LoginPage = () => {
             </div>
             <div className="flex justify-evenly">
               <button
-                onClick={() =>
-                  signIn("google", {
-                    callbackUrl: "http://localhost:3000/",
-                  })
-                }
+                onClick={handelGoogleLogin}
                 className="btn btn-primary"
               >
                 Google
               </button>
               <button
-                onClick={() =>
-                  signIn("github", {
-                    callbackUrl: "http://localhost:3000/",
-                  })
-                }
+                onClick={handelGithubLogin}
                 className="btn btn-primary"
               >
                 Git Hub
