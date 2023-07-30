@@ -22,7 +22,7 @@ ProductDetail.getLayout = function getLayout(page) {
 }
 
 export async function getStaticPaths() {
-     const res = await fetch(`https://pc-bd.vercel.app/api/v1/product`)
+     const res = await fetch(`https://pc-bd.vercel.app/api/v1/product/?limit=100`)
      const prodacts = await res.json()
      const paths = prodacts.data.map((prodact) => ({
           params: { pronactId: prodact._id },
