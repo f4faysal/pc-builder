@@ -17,7 +17,7 @@ console.log(filteredProducts)
           </div>
           <div className="grid  grid-cols-1 md:grid-cols-5 gap-4 justify-items-center my-10">
             {
-              filteredProducts.map(prodct => <Card prodct={prodct} key={prodct._id} />)
+              filteredProducts.map((prodct , i) => <Card prodct={prodct} key={i} />)
             }
           </div>
         </div>
