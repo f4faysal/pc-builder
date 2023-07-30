@@ -5,12 +5,6 @@ const LoginPage = () => {
   const { data: session } = useSession()
   console.log(session?.user?.email)
 
-
-  const handelGithubLogin = () => {
-
-
-  }
-
   return (
     <div className="hero min-h-screen bg-base-200">
       <div className="hero-content flex-col lg:flex-row-reverse">
@@ -60,7 +54,7 @@ const LoginPage = () => {
               </button>
               <button
                 onClick={() => signIn("github", {
-                  callbackUrl: "https://pc-builder-ten.vercel.app/",
+                  callbackUrl: "http://localhost:3000/",
                 })}
                 className="btn btn-primary"
               >
