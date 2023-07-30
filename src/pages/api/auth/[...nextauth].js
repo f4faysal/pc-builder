@@ -10,14 +10,14 @@ export const authOptions = {
       clientSecret: process.env.GITHUB_SECRET,
     }),
     GoogleProvider({
-     clientId: process.env.GOOGLE_CLIENT_ID,
-     clientSecret: process.env.GOOGLE_CLIENT_SECRET
-   })
+      clientId: process.env.GOOGLE_CLIENT_ID,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET
+    })
     // ...add more providers here
   ],
 
-  pages : {
-    signIn : "/login"
+  pages: {
+    signIn: "https://pc-builder-ten.vercel.app/login"
   }
 
 }

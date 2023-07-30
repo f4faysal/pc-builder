@@ -1,21 +1,14 @@
-import { setUser } from "@/redux/features/user/userSlice";
 import { useAppDispatch } from "@/redux/hook";
 import { signIn, useSession } from "next-auth/react";
 const LoginPage = () => {
   const dispatch = useAppDispatch();
   const { data: session } = useSession()
   console.log(session?.user?.email)
-  const handelGoogleLogin = () => {
-    signIn("google", {
-      callbackUrl: "http://localhost:3000/",
-    })
-   
-  }
+
+
   const handelGithubLogin = () => {
-    signIn("github", {
-      callbackUrl: "http://localhost:3000/",
-    })
-    
+
+
   }
 
   return (
@@ -58,13 +51,17 @@ const LoginPage = () => {
             </div>
             <div className="flex justify-evenly">
               <button
-                onClick={handelGoogleLogin}
+                onClick={() => signIn("google", {
+                  callbackUrl: "https://pc-builder-ten.vercel.app/",
+                })}
                 className="btn btn-primary"
               >
                 Google
               </button>
               <button
-                onClick={handelGithubLogin}
+                onClick={() => signIn("github", {
+                  callbackUrl: "https://pc-builder-ten.vercel.app/",
+                })}
                 className="btn btn-primary"
               >
                 Git Hub

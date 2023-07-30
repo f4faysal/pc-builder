@@ -6,7 +6,7 @@ const ProductDetail = ({ product }) => {
      const productDetails = product.data
      return (
           <div>
-               <CardDtal productDetails={productDetails} />
+               <CardDtal productDetails={productDetails} key={productDetails._id} />
           </div>
      );
 };
@@ -24,13 +24,11 @@ ProductDetail.getLayout = function getLayout(page) {
 export async function getStaticPaths() {
      const res = await fetch(`https://pc-bd.vercel.app/api/v1/product`)
      const prodacts = await res.json()
-
      const paths = prodacts.data.map((prodact) => ({
           params: { pronactId: prodact._id },
      }))
      return { paths, fallback: false }
 }
-
 
 export const getStaticProps = async (context) => {
      const { params } = context
