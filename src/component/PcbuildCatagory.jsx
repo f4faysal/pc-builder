@@ -7,14 +7,14 @@ const PcbuildCatagory = ({ crc }) => {
   const [filteredProducts, setfilteredProducts] = useState();
 
   const { products } = useAppSelector((state) => state.products);
+  const { addtoBuild } = useAppSelector((state) => state.addtoBuild);
 
   const handelAddToBuilder = (catagory) => {
     setfilteredProducts(
-      products.filter((product) => product.category === `${crc}`)
+      products.filter((product) => product.category === `${catagory}`)
     );
-
-    console.log(catagory);
     setShowModal(true);
+
   };
 
   return (
@@ -39,7 +39,7 @@ const PcbuildCatagory = ({ crc }) => {
 
                   <div className="relative p-6 flex-auto">
                     {filteredProducts.map((prodct, i) => (
-                      <CardTable prodct={prodct} key={i} />
+                      <CardTable prodct={prodct} key={i} setShowModal={setShowModal}/>
                     ))}
                   </div>
 
@@ -67,7 +67,10 @@ const PcbuildCatagory = ({ crc }) => {
           </div>
         </div>
         <div className="col-start-3 col-end-5 w-full">
-          <div>@</div>
+          {/* <div>
+          {addtoBuild.map((prodct, i) => (<CardTable prodct={prodct} key={i}/>))}
+
+          </div> */}
         </div>
         <div className="col-start-5 col-end-6 w-full">
           <div>

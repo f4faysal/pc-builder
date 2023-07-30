@@ -8,9 +8,16 @@ const addtoBuildSlice = createSlice({
      },
      reducers: {
           addtoBuild: (state, action) => {
-               state.addtoBuild = action.payload;
-               state.isLoading = false;
-               state.error = null;
+
+               const existiong = state.addtoBuild.find(prodact => prodact.category === action.payload.category)
+
+               if (existiong) {
+               } else {
+                    state.addtoBuild.push({ ...action.payload })
+               }
+               // state.addtoBuild = action.payload;
+               // state.isLoading = false;
+               // state.error = null;
           },
      },
 });
