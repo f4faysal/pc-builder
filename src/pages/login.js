@@ -54,7 +54,7 @@ const LoginPage = () => {
               </button>
               <button
                 onClick={() => signIn("github", {
-                  callbackUrl: "http://localhost:3000/",
+                  callbackUrl: "https://pc-builder-ten.vercel.app/",
                 })}
                 className="btn btn-primary"
               >
