@@ -1,6 +1,4 @@
-Certainly, let's add more sections and details to your README.md:
 
-```markdown
 # PC Builder BD
 
 Welcome to PC Builder BD, your go-to destination for building customized PCs.
